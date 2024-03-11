@@ -82,13 +82,21 @@ const TournamentForm = () => {
           </div>
           <div className="col-span-2 sm:col-span-1">
             <DateField
-              name="tournament.date"
+              name="tournament.startDate"
               control={form.control}
-              label={t("dateLabel")}
+              label={t("startDateLabel")}
               required
             />
           </div>
           <div className="col-span-2 sm:col-span-1">
+            <DateField
+              name="tournament.endDate"
+              control={form.control}
+              label={t("endDateLabel")}
+              required
+            />
+          </div>
+          <div className="col-span-2 sm:col-span-2">
             <TextField
               name="tournament.url"
               control={form.control}
@@ -97,7 +105,7 @@ const TournamentForm = () => {
               required
             />
           </div>
-          <div className="col-span-2 sm:col-span-1">
+          <div className="col-span-2 sm:col-span-2">
             <SelectField
               name="tournament.time_control"
               control={form.control}

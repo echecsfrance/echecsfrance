@@ -115,12 +115,12 @@
 
     "tournamentNameLabel": "Nom du Tournoi",
     "tournamentNamePlaceholder": "Nom du tournoi",
-    "dateLabel": "Date",
+    "endDateLabel": "Date du Début",
+    "startDateLabel": "Date du Fin",
     "urlLabel": "URL",
     "urlPlaceholder": "www.example.com",
     "tcLabel": "Cadence",
     "tcOption1": "Cadence Lente",
-
     "normLabel": "Tournoi à norme\u00a0?",
     "normNo": "Non",
     "normYes": "Oui",

@@ -5,7 +5,7 @@ import { z } from "zod";
 export type Status = "scheduled" | "ongoing" | "finished" | "in-play";
 
 export const tournamentDataSchema = z.object({
-  tournament_id: z.string().optional(),
+  tournament_id: z.string(),
   town: z.string(),
   department: z.string(),
   country: z.string(),
@@ -14,7 +14,7 @@ export const tournamentDataSchema = z.object({
   time_control: z.string(),
   norm_tournament: z.boolean().optional(),
   date: z.string(),
-  startDate: z.string().optional(),
+  startDate: z.string(),
   endDate: z.string().optional(),
   coordinates: z.array(z.number()).min(2).max(2),
   entry_method: z.enum(["manual", "auto"]),

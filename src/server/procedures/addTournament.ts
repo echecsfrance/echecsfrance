@@ -26,9 +26,9 @@ export const addTournament = publicProcedure
 
       const tournamentData: Omit<TournamentData, "_id" | "tournament_id"> = {
         ...tournament,
-        date: format(tournament.startDate, "dd/MM/yyyy"),
-        startDate: format(tournament.startDate, "dd/MM/yyyy"),
-        endDate: format(tournament.endDate, "dd/MM/yyyy"),
+        date: format(tournament.start_date, "dd/MM/yyyy"),
+        start_date: format(tournament.start_date, "dd/MM/yyyy"),
+        end_date: format(tournament.end_date, "dd/MM/yyyy"),
         time_control: tcMap[tournament.time_control],
         coordinates: tournament.coordinates as [number, number],
         entry_method: "manual",
@@ -39,7 +39,7 @@ export const addTournament = publicProcedure
       const result = await db.insertOne(tournamentData);
 
       if (result.insertedId) {
-        const { tournament, country, startDate, endDate, time_control } = tournamentData;
+        const { tournament, country, start_date, end_date, time_control } = tournamentData;
 
         if (
           typeof process.env.DISCORD_WEBHOOK_ADD_TOURNAMENT_URL === "string"
@@ -58,8 +58,8 @@ export const addTournament = publicProcedure
                     fields: [
                       { name: "Tournament", value: tournament },
                       { name: "Country", value: country },
-                      { name: "Start Date", value: startDate },
-                      { name: "End Date", value: endDate },
+                      { name: "Start Date", value: start_date },
+                      { name: "End Date", value: end_date },
                       {
                         name: "Time Control",
                         value: time_control,

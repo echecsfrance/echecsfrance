@@ -4,6 +4,9 @@
 
 /mongo_data/
 
+/.yarn/
+.yarnrc.yml
+
 # dependencies
 /node_modules
 /.pnp

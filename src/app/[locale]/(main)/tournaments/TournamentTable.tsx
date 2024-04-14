@@ -104,7 +104,7 @@ const TournamentTable = () => {
           <TimeControlFilters />
         </div>
 
-        <RegionSelect />
+        <RegionSelect syncTitle={t("syncWithMapOption")} />
       </div>
 
       <div className="flex justify-center" ref={datePickerRef}>

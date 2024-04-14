@@ -18,12 +18,10 @@ import {
   filteredTournamentsListAtom,
   hoveredMapIdAtom,
   normsOnlyAtom,
-  regionFilterAtom,
 } from "@/atoms";
 import { RegionSelect } from "@/components/RegionSelect";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import SearchBar from "@/components/SearchBar";
-import { Select } from "@/components/form/Select";
 import { useBreakpoint } from "@/hooks/tailwind";
 import useDatePickerWidth from "@/hooks/useDatePickerWidth";
 import { DatePickerDirection } from "@/types";
@@ -81,14 +79,22 @@ const TournamentTable = () => {
       id="listing"
     >
       <div className="z-10 flex w-full flex-wrap items-center justify-start gap-3 p-3">
-        <SearchBar />
+        <div className="flex w-full flex-col gap-3 sm:flex-row">
+          <SearchBar className="w-full sm:w-auto" />
+          <RegionSelect
+            syncTitle={t("syncWithMapOption")}
+            classNameOverrides={{
+              container: () => "flex flex-1",
+            }}
+          />
+        </div>
 
         <BsCalendar2Date
           className={`cursor-pointer text-3xl ${datePickerColour}`}
           onClick={handleDatePickerClick}
         />
 
-        <div className="flex flex-col gap-0 text-gray-900 dark:text-white">
+        <div className="flex text-gray-900 dark:text-white">
           <label>
             <input
               type="checkbox"
@@ -103,8 +109,6 @@ const TournamentTable = () => {
         <div className="hidden lg:block">
           <TimeControlFilters />
         </div>
-
-        <RegionSelect syncTitle={t("syncWithMapOption")} />
       </div>
 
       <div className="flex justify-center" ref={datePickerRef}>
